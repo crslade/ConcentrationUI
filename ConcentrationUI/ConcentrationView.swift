@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ConcentrationView.swift
 //  ConcentrationUI
 //
 //  Created by Christopher Slade on 6/20/19.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentView : View {
+struct ConcentrationView : View {
     var body: some View {
         Text("Hello World")
     }
@@ -17,7 +17,7 @@ struct ContentView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ConcentrationView()
     }
 }
 #endif

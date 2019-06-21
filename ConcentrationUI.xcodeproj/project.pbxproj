@@ -16,6 +16,7 @@
 		5402805022BC6D380084F446 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5402804F22BC6D380084F446 /* Card.swift */; };
 		5402805222BC6D640084F446 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5402805122BC6D640084F446 /* Concentration.swift */; };
 		5402805422BC72750084F446 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5402805322BC72750084F446 /* CardView.swift */; };
+		5402805622BC78310084F446 /* CardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5402805522BC78310084F446 /* CardViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5402804F22BC6D380084F446 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5402805122BC6D640084F446 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		5402805322BC72750084F446 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5402805522BC78310084F446 /* CardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				5402803C22BC6C1E0084F446 /* SceneDelegate.swift */,
 				5402803E22BC6C1E0084F446 /* ConcentrationView.swift */,
 				5402805322BC72750084F446 /* CardView.swift */,
+				5402805522BC78310084F446 /* CardViews.swift */,
 				5402804022BC6C1E0084F446 /* Assets.xcassets */,
 				5402804522BC6C1E0084F446 /* LaunchScreen.storyboard */,
 				5402804822BC6C1E0084F446 /* Info.plist */,
@@ -168,6 +171,7 @@
 				5402803D22BC6C1E0084F446 /* SceneDelegate.swift in Sources */,
 				5402803F22BC6C1E0084F446 /* ConcentrationView.swift in Sources */,
 				5402805422BC72750084F446 /* CardView.swift in Sources */,
+				5402805622BC78310084F446 /* CardViews.swift in Sources */,
 				5402805022BC6D380084F446 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,8 +9,24 @@
 import SwiftUI
 
 struct ConcentrationView : View {
+    @State var game = Concentration(numberOfPairsOfCards: 2)
+    
     var body: some View {
-        Text("Hello World")
+        VStack {
+            CardViews()
+            HStack {
+                Text("Score: \(game.score)")
+                Spacer()
+                Button(action: {
+                    print("New Game")
+                    self.game.chooseCard(at: 0)
+                    self.game.chooseCard(at: 1)
+                }) {
+                    Text("New Game")
+                }
+            }
+            .padding()
+        }
     }
 }
 

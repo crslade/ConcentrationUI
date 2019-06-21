@@ -7,8 +7,13 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
 
-struct Concentration {
+
+class Concentration: BindableObject {
+    
+    var didChange = PassthroughSubject<Concentration, Never>()
     
     private(set) var cards = [Card]()
     private(set) var flipCount = 0
@@ -25,7 +30,7 @@ struct Concentration {
         }
     }
     
-    mutating func chooseCard(at index: Int) {
+    func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index): choose index not in cards")
         if !cards[index].isMatched {
             flipCount += 1
@@ -51,6 +56,7 @@ struct Concentration {
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
+        didChange.send(self)
     }
     
     init(numberOfPairsOfCards: Int) {

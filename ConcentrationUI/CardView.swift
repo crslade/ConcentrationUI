@@ -9,13 +9,14 @@
 import SwiftUI
 
 struct CardView : View {
-    var card: Card
+    @EnvironmentObject var game: Concentration
+    var indexOfCard: Int
     
     var body: some View {
         Button(action: {
-            print("I'm pressed")
+            self.game.chooseCard(at: self.indexOfCard)
         }) {
-            if card.isFaceUp {
+            if game.cards[indexOfCard].isFaceUp {
                 Text("🏍")
                     .font(.largeTitle)
                     .padding()
@@ -29,7 +30,7 @@ struct CardView : View {
                     .padding()
                     .fixedSize()
                     .frame(width: 75, height: 75, alignment: .center)
-                    .background(card.isMatched ? Color.clear : Color.blue)
+                    .background(game.cards[indexOfCard].isMatched ? Color.clear : Color.blue)
                     .cornerRadius(3.0)
             }
 
@@ -41,18 +42,17 @@ struct CardView : View {
 #if DEBUG
 struct CardView_Previews : PreviewProvider {
     static var previews: some View {
-        var card1 = Card()
-        var card2 = Card()
-        var card3 = Card()
-        card1.isFaceUp = true
-        card2.isFaceUp = false
-        card3.isMatched = true
+        let game = Concentration(numberOfPairsOfCards: 4)
+        game.chooseCard(at: 0)
+        game.chooseCard(at: 1)
+        game.chooseCard(at: 2)
         return Group {
-            CardView(card: card1)
-            CardView(card: card2)
-            CardView(card: card3)
+            CardView(indexOfCard: 0)
+            CardView(indexOfCard: 2)
+            CardView(indexOfCard: 3)
         }
         .previewLayout(.fixed(width: 75, height: 75))
+        .environmentObject(game)
         
     }
 }

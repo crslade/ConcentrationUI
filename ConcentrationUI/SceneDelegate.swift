@@ -22,7 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: ContentView())
+            window.rootViewController = UIHostingController(rootView: ConcentrationView()
+                    .environmentObject(Concentration(numberOfPairsOfCards: ConcentrationView.numberOfCards/2))
+            )
             self.window = window
             window.makeKeyAndVisible()
         }

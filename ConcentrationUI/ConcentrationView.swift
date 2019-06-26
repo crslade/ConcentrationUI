@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct ConcentrationView : View {
-    @State var game = Concentration(numberOfPairsOfCards: 2)
+    @EnvironmentObject var game: Concentration
+    
+    static let numberOfCards = 4
     
     var body: some View {
         VStack {
@@ -34,6 +36,7 @@ struct ConcentrationView : View {
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         ConcentrationView()
+            .environmentObject(Concentration(numberOfPairsOfCards: ConcentrationView.numberOfCards/2))
     }
 }
 #endif

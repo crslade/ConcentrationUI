@@ -11,7 +11,7 @@ import SwiftUI
 struct ConcentrationView : View {
     @EnvironmentObject var game: Concentration
     
-    static let numberOfCards = 4
+    static let numberOfCards = 24
     
     var body: some View {
         VStack {
@@ -21,8 +21,8 @@ struct ConcentrationView : View {
                 Spacer()
                 Button(action: {
                     print("New Game")
-                    self.game.chooseCard(at: 0)
-                    self.game.chooseCard(at: 1)
+                    self.game.newGame()
+                    
                 }) {
                     Text("New Game")
                 }
@@ -37,6 +37,7 @@ struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         ConcentrationView()
             .environmentObject(Concentration(numberOfPairsOfCards: ConcentrationView.numberOfCards/2))
+            .environmentObject(Theme())
     }
 }
 #endif

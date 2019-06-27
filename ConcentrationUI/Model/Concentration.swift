@@ -15,6 +15,7 @@ class Concentration: BindableObject {
     
     var didChange = PassthroughSubject<Concentration, Never>()
     
+    private var numberOfPairsOfCards: Int
     private(set) var cards = [Card]()
     private(set) var flipCount = 0
     private(set) var score = 0
@@ -59,16 +60,27 @@ class Concentration: BindableObject {
         didChange.send(self)
     }
     
-    init(numberOfPairsOfCards: Int) {
-        assert(numberOfPairsOfCards > 0, "init( \(numberOfPairsOfCards): needs to be > 0")
-        var newCards = [Card]()
+    func newGame() {
+        cards = [Card]()
+        createDeck()
+        score = 0
+        print("Created New Game")
+        didChange.send(self)
+    }
+    
+    private func createDeck() {
         for _ in 1...numberOfPairsOfCards {
             let card = Card()
-            newCards += [card, card]
+            cards += [card, card]
         }
-        // TODO: Shuffle the cards
-        cards = newCards
+        cards.shuffle()
     }
+    
+    init(numberOfPairsOfCards: Int) {
+        assert(numberOfPairsOfCards > 0, "init( \(numberOfPairsOfCards): needs to be > 0")
+        self.numberOfPairsOfCards = numberOfPairsOfCards
+        createDeck()
+    }  
     
 }
 

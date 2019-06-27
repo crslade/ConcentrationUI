@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: ConcentrationView()
                     .environmentObject(Concentration(numberOfPairsOfCards: ConcentrationView.numberOfCards/2))
+                    .environmentObject(Theme())
             )
             self.window = window
             window.makeKeyAndVisible()

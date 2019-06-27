@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CardView : View {
     @EnvironmentObject var game: Concentration
+    @EnvironmentObject var theme: Theme
     var indexOfCard: Int
     
     var body: some View {
@@ -17,7 +18,7 @@ struct CardView : View {
             self.game.chooseCard(at: self.indexOfCard)
         }) {
             if game.cards[indexOfCard].isFaceUp {
-                Text("🏍")
+                Text(theme.emoji(for: game.cards[indexOfCard]))
                     .font(.largeTitle)
                     .padding()
                     .fixedSize()
@@ -53,6 +54,7 @@ struct CardView_Previews : PreviewProvider {
         }
         .previewLayout(.fixed(width: 75, height: 75))
         .environmentObject(game)
+        .environmentObject(Theme())
         
     }
 }
